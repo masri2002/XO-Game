@@ -15,7 +15,7 @@ function winner() {
         document.getElementById('item3').style.backgroundColor = 'red';
         gameOver = true; 
         setInterval(() => { title.innerHTML += '.'; }, 1000);
-        setTimeout(() => { location.reload() }, 4000);
+        setTimeout(() => { location.reload() }, 3000);
     }
     if (squares[4] == squares[5] && squares[5] == squares[6] && squares[4] != '') {
         title.innerHTML = '<span>' + squares[4] + '</span> Won';
@@ -24,7 +24,7 @@ function winner() {
         document.getElementById('item6').style.backgroundColor = 'red';
         gameOver = true;
         setInterval(() => { title.innerHTML += '.'; }, 1000);
-        setTimeout(() => { location.reload() }, 4000);
+        setTimeout(() => { location.reload() }, 3000);
     }
     if (squares[7] == squares[8] && squares[8] == squares[9] && squares[7] != '') {
         title.innerHTML = '<span>' + squares[7] + '</span> Won';
