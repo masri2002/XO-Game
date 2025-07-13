@@ -68,7 +68,7 @@ function winner() {
         document.getElementById('item5').style.backgroundColor = 'red';
         document.getElementById('item8').style.backgroundColor = 'red';
         gameOver = true;
-        setInterval(() => { title.innerHTML += '.'; }, 1000);
+        setInterval(() => { title.innerHTML += '.'; }, 1500);
         setTimeout(() => { location.reload() }, 4000);
     }
     if (squares[3] == squares[6] && squares[6] == squares[9] && squares[3] != '') {
