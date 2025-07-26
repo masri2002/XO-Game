@@ -1,7 +1,8 @@
 let turn = 'x';
 let title = document.querySelector('.title');
 let squares = [];
-let gameOver = false; 
+let gameOver = false;
+let winSound = new Audio('mixkit-instant-win-2021.wav');
 
 function winner() {
     for (let i = 1; i < 10; i++) {
@@ -13,7 +14,8 @@ function winner() {
         document.getElementById('item1').style.backgroundColor = 'red';
         document.getElementById('item2').style.backgroundColor = 'red';
         document.getElementById('item3').style.backgroundColor = 'red';
-        gameOver = true; 
+        gameOver = true;
+        winSound.play()
         setInterval(() => { title.innerHTML += '.'; }, 1000);
         setTimeout(() => { location.reload() }, 3000);
     }
@@ -23,6 +25,7 @@ function winner() {
         document.getElementById('item5').style.backgroundColor = 'red';
         document.getElementById('item6').style.backgroundColor = 'red';
         gameOver = true;
+        winSound.play()
         setInterval(() => { title.innerHTML += '.'; }, 1000);
         setTimeout(() => { location.reload() }, 3000);
     }
@@ -32,6 +35,7 @@ function winner() {
         document.getElementById('item8').style.backgroundColor = 'red';
         document.getElementById('item9').style.backgroundColor = 'red';
         gameOver = true;
+        winSound.play()
         setInterval(() => { title.innerHTML += '.'; }, 1000);
         setTimeout(() => { location.reload() }, 3000);
     }
@@ -41,6 +45,7 @@ function winner() {
         document.getElementById('item5').style.backgroundColor = 'red';
         document.getElementById('item9').style.backgroundColor = 'red';
         gameOver = true;
+        winSound.play()
         setInterval(() => { title.innerHTML += '.'; }, 1000);
         setTimeout(() => { location.reload() }, 3000);
     }
@@ -50,6 +55,7 @@ function winner() {
         document.getElementById('item5').style.backgroundColor = 'red';
         document.getElementById('item7').style.backgroundColor = 'red';
         gameOver = true;
+        winSound.play()
         setInterval(() => { title.innerHTML += '.'; }, 1000);
         setTimeout(() => { location.reload() }, 3000);
     }
@@ -59,6 +65,7 @@ function winner() {
         document.getElementById('item4').style.backgroundColor = 'red';
         document.getElementById('item7').style.backgroundColor = 'red';
         gameOver = true;
+        winSound.play()
         setInterval(() => { title.innerHTML += '.'; }, 1000);
         setTimeout(() => { location.reload() }, 3000);
     }
@@ -68,6 +75,7 @@ function winner() {
         document.getElementById('item5').style.backgroundColor = 'red';
         document.getElementById('item8').style.backgroundColor = 'red';
         gameOver = true;
+        winSound.play()
         setInterval(() => { title.innerHTML += '.'; }, 1500);
         setTimeout(() => { location.reload() }, 4000);
     }
@@ -77,13 +85,33 @@ function winner() {
         document.getElementById('item6').style.backgroundColor = 'red';
         document.getElementById('item9').style.backgroundColor = 'red';
         gameOver = true;
+        winSound.play()
         setInterval(() => { title.innerHTML += '.'; }, 1000);
         setTimeout(() => { location.reload() }, 4000);
     }
+
+    if (!gameOver && checktie()) {
+        tie();
+    }
+}
+
+function checktie() {
+    for (let i = 1; i < 10; i++) {
+        if (squares[i] === "") {
+            return false;
+        }
+    }
+    return true;
+}
+
+function tie() {
+    title.innerHTML = '<span>Tie</span>';
+    setInterval(() => { title.innerHTML += '.'; }, 1000);
+    setTimeout(() => { location.reload() }, 4000);
 }
 
 function game(id) {
-    if (gameOver) return; 
+    if (gameOver) return;
 
     let e = document.getElementById(id);
     console.log(id);
